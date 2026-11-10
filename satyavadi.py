@@ -1,3 +1,4 @@
+
 import os
 import json
 import re
@@ -264,3 +265,17 @@ if __name__ == "__main__":
 
     result = satyavadi_graph.invoke({"user_url": user_link})
     print(json.dumps(result["final_output"], indent=2, ensure_ascii=False))
+
+ 
+def run_Satyavadi(product_url):
+    # Agar frontend se string aayi hai, toh use dictionary state mein convert kar lo
+    if isinstance(product_url, str):
+        state_input = {"user_url": product_url}
+    else:
+        state_input = product_url
+        
+    try:
+        result = satyavadi_graph.invoke(state_input)
+        return result.get("final_output", result)
+    except Exception as e:
+        return {"error": str(e)}

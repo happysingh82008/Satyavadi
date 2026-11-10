@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satyavadi — AI-Engineered E-Commerce Trust &amp; URL Audit Court</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body class="blackspace-body">
+
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="svGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fde047" />
+        <stop offset="50%" stop-color="#22c55e" />
+        <stop offset="100%" stop-color="#0ea5e9" />
+      </linearGradient>
+      <linearGradient id="featherStemGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#fef08a" />
+        <stop offset="45%" stop-color="#10b981" />
+        <stop offset="100%" stop-color="#0284c7" />
+      </linearGradient>
+      <radialGradient id="peacockEyeOuter" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#1e1b4b" />
+        <stop offset="38%" stop-color="#1d4ed8" />
+        <stop offset="68%" stop-color="#059669" />
+        <stop offset="88%" stop-color="#d97706" />
+        <stop offset="100%" stop-color="#15803d" />
+      </radialGradient>
+
+      <symbol id="sv-peacock-logo" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="52" fill="rgba(4, 18, 12, 0.85)" stroke="url(#svGoldGrad)" stroke-width="3.5" stroke-dasharray="8 4" />
+        <circle cx="60" cy="60" r="44" fill="none" stroke="rgba(34, 197, 94, 0.35)" stroke-width="1.5" />
+
+        <path d="M52 30 C34 28, 26 40, 38 49 C50 58, 56 64, 46 76 C38 86, 26 82, 24 74"
+              fill="none" stroke="#4ade80" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+
+        <path d="M56 34 L72 84 L90 34"
+              fill="none" stroke="#38bdf8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+
+        <path d="M22 96 Q48 64 88 22" fill="none" stroke="url(#featherStemGrad)" stroke-width="4" stroke-linecap="round" />
+        <path d="M36 82 C30 68, 42 54, 56 50" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+        <path d="M46 72 C40 56, 54 40, 72 36" fill="none" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" />
+        <path d="M52 66 C68 72, 82 60, 88 42" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+        <path d="M40 78 C56 84, 70 74, 76 58" fill="none" stroke="#eab308" stroke-width="1.8" stroke-linecap="round" />
+
+        <g transform="translate(78, 30) rotate(-35)">
+          <ellipse cx="0" cy="0" rx="16" ry="21" fill="url(#peacockEyeOuter)" stroke="#fde047" stroke-width="1.8" />
+          <ellipse cx="0" cy="1" rx="11" ry="15" fill="#06b6d4" />
+          <ellipse cx="0" cy="3" rx="7.5" ry="10" fill="#1d4ed8" />
+          <ellipse cx="0" cy="4" rx="4.2" ry="6" fill="#090d16" />
+          <circle cx="-1.8" cy="2.2" r="1.6" fill="#ffffff" />
+        </g>
+
+        <circle cx="58" cy="58" r="4.5" fill="#fde047" />
+      </symbol>
+
+      <symbol id="logo-amazon" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="14" fill="#131921" />
+        <text x="32" y="38" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-weight="800" font-size="26">a</text>
+        <path d="M16 45 Q32 55 48 44" fill="none" stroke="#ff9900" stroke-width="4" stroke-linecap="round" />
+        <path d="M44 41 L49 44 L45 49" fill="none" stroke="#ff9900" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+
+      <symbol id="logo-flipkart" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="14" fill="#2874f0" />
+        <path d="M20 20 H46 L42 38 H23 Z" fill="#ffe500" />
+        <text x="33" y="36" text-anchor="middle" fill="#2874f0" font-family="Inter, sans-serif" font-weight="900" font-size="22" font-style="italic">f</text>
+        <circle cx="26" cy="46" r="3.5" fill="#ffffff" />
+        <circle cx="40" cy="46" r="3.5" fill="#ffffff" />
+      </symbol>
+
+      <symbol id="logo-meesho" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="14" fill="#3b0764" />
+        <rect x="4" y="4" width="56" height="56" rx="11" fill="none" stroke="#f43397" stroke-width="2.5" />
+        <text x="32" y="42" text-anchor="middle" fill="#f43397" font-family="Space Grotesk, sans-serif" font-weight="800" font-size="28">m</text>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div id="css-starfield" class="starfield-layer" aria-hidden="true"></div>
+
+  <div class="page-shell">
+
+    <header class="top-left-header" id="top-header">
+      <div class="brand-lockup">
+        <div class="logo-orb" title="Satyavadi SV Peacock Feather Emblem">
+          <svg class="brand-svg-icon" role="img" aria-label="Satyavadi SV Peacock Feather Logo">
+            <use href="#sv-peacock-logo"></use>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <div class="brand-name-row">
+            <span class="brand-monogram-tag">S&bull;O&bull;V</span>
+            <h1 class="brand-title">SATYAVADI</h1>
+          </div>
+          <p class="brand-subtitle">Lord Krishna Mor-Pankh Truth Shield &bull; Multi-Agent E-Commerce Court</p>
+        </div>
+      </div>
+
+      <div class="header-status-pills">
+        <span class="status-pill"><span class="pulse-dot"></span> Flask Engine Ready</span>
+        <span class="status-pill">Platforms: Amazon &bull; Flipkart &bull; Meesho</span>
+        <button type="button" id="toggle-copy-mode-btn" class="ghost-chip-btn" title="Switch between polished English and exact spoken phrasing">
+          Text Mode: Polished
+        </button>
+      </div>
+    </header>
+
+    <section class="eight-to-ten-line-gap-zone" aria-label="8 to 10 Line Vertical Spacing Gap and 3D Robotic Humanoid">
+      <div class="gap-line-ruler" aria-hidden="true">
+
+      </div>
+
+      <div class="robot-stage-wrapper">
+        <div class="robot-stage-header">
+          <div class="robot-stage-title">
+            <svg class="mini-sv-logo"><use href="#sv-peacock-logo"></use></svg>
+           
+          </div>
+          <div class="robot-camera-controls" role="group" aria-label="3D Robot View Controls">
+            <button type="button" class="cam-btn" id="btn-toggle-spin">Auto-Rotate: ON</button>
+          </div>
+        </div>
+
+        <div id="robot-canvas-container" class="robot-canvas-box" role="region" aria-label="Interactive 3D Robotic Humanoid">
+          <div class="robot-hud-overlay">
+            <div class="hud-badge">CORE: <strong id="hud-core-status">VERIFIED GREEN (78/100)</strong></div>
+            <div class="hud-hint">Drag with mouse/touch to rotate 360&deg; in Blackspace</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="main-split-grid">
+
+      <div class="left-column">
+
+        <article class="glassmorphism-card" id="mission-glass-card">
+          <div class="glass-card-top-bar">
+            <svg class="mini-sv-logo"><use href="#sv-peacock-logo"></use></svg>
+            <span class="glass-tag">MULTI-AGENT AI MANIFESTO &bull; 5-PART DIVISION</span>
+          </div>
+
+          <h2 class="part-1-headline" id="part-1-text">
+            satyavadi AI-engineered
+          </h2>
+
+          <div class="mission-four-parts" id="mission-parts-container">
+            <span style="color: rgb(15, 17, 15);font-style: italic;" class="lead-2x-dark-green" id="part-2-lead">To eradicate</span>
+            <span style="color: rgb(71, 72, 71);font-style: italic;" class="light-white-text" id="part-2-rest"> e-commerce manipulation</span>
+            <span style="color: rgb(71, 72, 71);font-style: italic;" class="light-white-text" id="part-3-text">by combining multi-agent AI plan and real-time market audits.</span>
+            <span style="color: rgb(71, 72, 71);font-style: italic;" class="light-white-text" id="part-4-text">We restore trust, verify trust values,</span>
+            <span style="color: rgb(71, 72, 71);font-style: italic;" class="light-white-text" id="part-5-text">and protect your hard-earned money from deceptive sellers.</span>
+            /
+          </div>
+        </article>
+        <br>
+        <br>
+        
+        <section class="trust-chart-card glassmorphism-subcard" aria-labelledby="trust-chart-heading">
+          <div class="chart-card-header">
+            <div class="chart-title-group">
+              <svg class="mini-sv-logo"><use href="#sv-peacock-logo"></use></svg>
+              <div>
+                <h3 id="trust-chart-heading">Satyavadi Trust Level Chart (Range 0 &ndash; 100)</h3>
+                <p class="chart-sub">Evaluated via explicit <code>for</code> loop &bull; Auto-triggers screen pop-up</p>
+              </div>
+            </div>
+            <div class="live-score-pill" id="chart-score-pill">78 / 100</div>
+          </div>
+
+          <div class="spectrum-gauge-wrap">
+            <div class="spectrum-bar">
+              <div class="spec-seg seg-red" title="0 to 20: Red (Failure)">0&ndash;20 Red</div>
+              <div class="spec-seg seg-orange" title="21 to 40: Orange (Bot-Generated)">21&ndash;40 Orange</div>
+              <div class="spec-seg seg-yellow" title="41 to 60: Yellow (Verify Discount)">41&ndash;60 Yellow</div>
+              <div class="spec-seg seg-green" title="61 to 100: Dark Green (Verified)">61&ndash;100 Dark Green</div>
+            </div>
+            <div class="spectrum-pointer" id="spectrum-pointer">
+              <div class="pointer-diamond"></div>
+              <span class="pointer-label" id="pointer-label">78</span>
+            </div>
+          </div>
+
+          <div class="range-bars-grid" id="range-bars-grid">
+            <div class="range-bar-row" data-range="0-20" id="row-range-0">
+              <div class="range-meta">
+                <span class="range-dot dot-red"></span>
+                <strong>0 &ndash; 20 (Red)</strong>
+                <span class="range-verdict-tag">Failure / High Manipulation</span>
+              </div>
+              <div class="range-track">
+                <div class="range-fill fill-red" style="width: 20%"></div>
+              </div>
+            </div>
+
+            <div class="range-bar-row" data-range="21-40" id="row-range-1">
+              <div class="range-meta">
+                <span class="range-dot dot-orange"></span>
+                <strong>21 &ndash; 40 (Orange)</strong>
+                <span class="range-verdict-tag">Bot-Generated Reviews</span>
+              </div>
+              <div class="range-track">
+                <div class="range-fill fill-orange" style="width: 40%"></div>
+              </div>
+            </div>
+
+            <div class="range-bar-row" data-range="41-60" id="row-range-2">
+              <div class="range-meta">
+                <span class="range-dot dot-yellow"></span>
+                <strong>41 &ndash; 60 (Yellow)</strong>
+                <span class="range-verdict-tag">Discounted Item (Audit Seller)</span>
+              </div>
+              <div class="range-track">
+                <div class="range-fill fill-yellow" style="width: 60%"></div>
+              </div>
+            </div>
+
+            <div class="range-bar-row active-range-row" data-range="61-100" id="row-range-3">
+              <div class="range-meta">
+                <span class="range-dot dot-green"></span>
+                <strong>61 &ndash; 100 (Dark Green)</strong>
+                <span class="range-verdict-tag">Verified Discounted &amp; Trusted</span>
+              </div>
+              <div class="range-track">
+                <div class="range-fill fill-green" style="width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="right-column">
+
+        <section class="satyavadi-court-card glassmorphism-subcard" aria-labelledby="court-heading">
+          <div class="court-header">
+            <div class="court-title-wrap">
+              <svg class="court-sv-logo"><use href="#sv-peacock-logo"></use></svg>
+              <div>
+                <span class="court-kicker">RIGHT-HAND AUDIT STATION</span>
+                <h2 id="court-heading">Satyavadi Court &mdash; URL Verification</h2>
+              </div>
+              <br>
+            </div>
+            <span class="court-badge" id="detected-platform-pill">Detected: Amazon</span>
+          </div>
+          <br>
+
+          <form id="satyavadi-audit-form" class="court-form" novalidate>
+            <label for="product-url-input" class="input-label">
+              Paste Product URL (Amazon, Flipkart, or Meesho)
+            </label>
+            <div class="url-input-row">
+              <input
+                type="url"
+                id="product-url-input"
+                name="product_url"
+                class="url-input"
+                placeholder="https://www.amazon.in/dp/B0CHX1W1XY/wireless-anc-headphones"
+                value="https://www.amazon.in/dp/B0CHX1W1XY/pro-anc-headphones-deal"
+                required
+              />
+              <button type="submit" id="submit-audit-btn" class="audit-submit-btn">
+                <svg class="btn-sv-icon"><use href="#sv-peacock-logo"></use></svg>
+                <span>Submit Audit</span>
+              </button>
+            </div>
+            <br>
+            
+
+            <div class="test-controls-bar">
+              <div class="Quick-Presets">
+                <span class="preset-label">Quick Sample URLs:</span>
+                <button type="button" class="sample-url-btn" data-url="https://www.amazon.in/dp/B0CHX1W1XY/verified-anc-headphones-discount" data-score="84">
+                  Amazon (84 &bull; Dark Green)
+                </button>
+                <button type="button" class="sample-url-btn" data-url="https://www.flipkart.com/smart-watch-ultra-flash-sale/p/itm48f" data-score="52">
+                  Flipkart (52 &bull; Yellow)
+                </button>
+                <button type="button" class="sample-url-btn" data-url="https://www.meesho.com/bot-boosted-earbuds-clone/p/3k9a1" data-score="31">
+                  Meesho (31 &bull; Orange Bot)
+                </button>
+                <button type="button" class="sample-url-btn" data-url="https://www.amazon.in/fake-99-off-flagship-phone-scam/dp/B00FAIL12" data-score="14">
+                  Scam URL (14 &bull; Red Failure)
+                </button>
+              </div>
+
+              <div class="manual-score-row">
+                <label for="score-override-slider">Test Any Trust Range (1&ndash;100): <strong id="slider-val-readout">Auto (URL Hash)</strong></label>
+                <input type="range" id="score-override-slider" min="0" max="100" value="0" />
+              </div>
+            </div>
+          </form>
+
+          <div class="audit-verdict-banner" id="audit-verdict-banner">
+            <div class="verdict-main-col">
+              <span class="verdict-sub">AI LISTING PREDICTION</span>
+              <h3 class="verdict-headline" id="verdict-prediction-text">Discounted Item (Verified)</h3>
+              <p class="verdict-desc" id="verdict-explanation">
+                Multi-agent price history and seller audit confirm a genuine discount with organic buyer reviews.
+              </p>
+            </div>
+            <div class="verdict-score-orb" id="verdict-score-orb">
+              <span class="orb-num" id="verdict-score-num">84</span>
+              <span class="orb-max">/ 100</span>
+            </div>
+          </div>
+
+          <div class="dynamic-metrics-grid">
+            <div class="metric-tile">
+              <span class="metric-label">Fetched Platform</span>
+              <strong class="metric-val" id="metric-platform">Amazon India</strong>
+            </div>
+            <div class="metric-tile">
+              <span class="metric-label">Listed URL Price</span>
+              <strong class="metric-val" id="metric-listed-price">&#8377;2,499</strong>
+            </div>
+            <div class="metric-tile">
+              <span class="metric-label">True AI Fair Value</span>
+              <strong class="metric-val" id="metric-fair-price">&#8377;2,450</strong>
+            </div>
+            <div class="metric-tile">
+              <span class="metric-label">Bot / Fake Review Probability</span>
+              <strong class="metric-val" id="metric-bot-prob">8% (Organic)</strong>
+            </div>
+          </div>
+
+          <div class="platform-ranking-banner">
+            <div class="rank-slot best-platform-slot" id="best-platform-box">
+              <div class="rank-badge-row">
+                <span class="rank-crown">&#9733; BEST PLATFORM TO PURCHASE</span>
+                <svg class="rank-sv-icon"><use href="#sv-peacock-logo"></use></svg>
+              </div>
+              <div class="rank-platform-name" id="best-platform-name">Amazon</div>
+              <div class="rank-platform-detail" id="best-platform-detail">
+                Effective Price: &#8377;2,499 &bull; Trust Score: 84/100 &bull; Verified Seller
+              </div>
+            </div>
+
+            <div class="rank-slot below-best-platform-slot" id="below-best-platform-box">
+              <div class="rank-badge-row">
+                <span class="rank-runner">&#8595; BELOW BEST PLATFORM (RUNNER-UP)</span>
+              </div>
+              <div class="rank-platform-name" id="below-best-platform-name">Flipkart</div>
+              <div class="rank-platform-detail" id="below-best-platform-detail">
+                Effective Price: &#8377;2,649 &bull; Trust Score: 76/100 &bull; Assured Alternative
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ecommerce-platforms-section" aria-labelledby="platforms-heading">
+          <div class="platforms-sec-header">
+            <h3 id="platforms-heading">Live Cross-Platform Value &amp; Trust Comparison</h3>
+            <span class="platforms-sub">Connected to Satyavadi SV Mor-Pankh Seal</span>
+          </div>
+
+          <div class="platform-cards-grid">
+
+            <article class="ecom-card card-amazon" id="ecom-card-amazon" data-platform="Amazon">
+              <div class="ecom-card-top">
+                <div class="ecom-brand-lockup">
+                  <svg class="ecom-brand-logo"><use href="#logo-amazon"></use></svg>
+                  <div>
+                    <h4>Amazon</h4>
+                    <span class="ecom-tag" id="amz-role-tag">Best Platform</span>
+                  </div>
+                </div>
+                <div class="sv-connected-seal" title="Connected Satyavadi SV Logo">
+                  <svg class="seal-sv-svg"><use href="#sv-peacock-logo"></use></svg>
+                </div>
+              </div>
+              <div class="ecom-card-metrics">
+                <div class="ecom-stat">
+                  <span>Product Value</span>
+                  <strong id="amz-price">&#8377;2,499</strong>
+                </div>
+                <div class="ecom-stat">
+                  <span>Trust Score</span>
+                  <strong id="amz-trust">84 / 100</strong>
+                </div>
+                <div class="ecom-stat">
+                  <span>AI Classification</span>
+                  <strong id="amz-status">Discounted Item</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="ecom-card card-flipkart" id="ecom-card-flipkart" data-platform="Flipkart">
+              <div class="ecom-card-top">
+                <div class="ecom-brand-lockup">
+                  <svg class="ecom-brand-logo"><use href="#logo-flipkart"></use></svg>
+                  <div>
+                    <h4>Flipkart</h4>
+                    <span class="ecom-tag" id="flp-role-tag">Below Best Platform</span>
+                  </div>
+                </div>
+                <div class="sv-connected-seal" title="Connected Satyavadi SV Logo">
+                  <svg class="seal-sv-svg"><use href="#sv-peacock-logo"></use></svg>
+                </div>
+              </div>
+              <div class="ecom-card-metrics">
+                <div class="ecom-stat">
+                  <span>Product Value</span>
+                  <strong id="flp-price">&#8377;2,649</strong>
+                </div>
+                <div class="ecom-stat">
+                  <span>Trust Score</span>
+                  <strong id="flp-trust">76 / 100</strong>
+                </div>
+                <div class="ecom-stat">
+                  <span>AI Classification</span>
+                  <strong id="flp-status">Discounted Item</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="ecom-card card-meesho" id="ecom-card-meesho" data-platform="Meesho">
+              <div class="ecom-card-top">
+                <div class="ecom-brand-lockup">
+                  <svg class="ecom-brand-logo"><use href="#logo-meesho"></use></svg>
+                  <div>
+                    <h4>Meesho</h4>
+                    <span class="ecom-tag" id="msh-role-tag">3rd Option</span>
+                  </div>
+                </div>
+                <div class="sv-connected-seal" title="Connected Satyavadi SV Logo">
+                  <svg class="seal-sv-svg"><use href="#sv-peacock-logo"></use></svg>
+                </div>
+              </div>
+              <div class="ecom-card-metrics">
+                <div class="ecom-stat">
+                  <span>Product Value</span>
+                  <strong id="msh-price">&#8377;2,390</strong>
+                </div>
+                <div class="ecom-stat">
+                  <span>Trust Score</span>
+                  <strong id="msh-trust">62 / 100</strong>
+                </div>
+                <div class="ecom-stat">
+                  <span>AI Classification</span>
+                  <strong id="msh-status">Verify Seller</strong>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <div id="satyavadi-popup" class="popup-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    <div class="popup-modal-card">
+      <button type="button" id="close-popup-btn" class="popup-close-btn" aria-label="Close Audit Pop-Up">&times;</button>
+
+      <div class="popup-header">
+        <div class="popup-logo-ring">
+          <svg class="popup-sv-svg"><use href="#sv-peacock-logo"></use></svg>
+        </div>
+        <div>
+          <span class="popup-kicker">SATYAVADI COURT LOOP VERDICT</span>
+          <h3 id="popup-title">Audit Complete &mdash; Trust Range Matched</h3>
+        </div>
+      </div>
+
+      <div class="popup-body">
+        <div class="popup-score-banner" id="popup-score-banner">
+          <div class="popup-score-big" id="popup-score-value">84 / 100</div>
+          <div class="popup-zone-info">
+            <strong id="popup-range-label">Dark Green Zone (61-100): Verified Discounted Item &amp; Trusted</strong>
+            <span id="popup-prediction-badge">Classification: Discounted Item (Verified)</span>
+          </div>
+        </div>
+
+        <div class="popup-details-grid">
+          <div class="popup-detail-item">
+            <span>Audited URL</span>
+            <strong id="popup-url-text" class="truncate-url">https://www.amazon.in/dp/B0CHX1W1XY/pro-anc-headphones-deal</strong>
+          </div>
+          <div class="popup-detail-item">
+            <span>Source Platform</span>
+            <strong id="popup-platform-text">Amazon</strong>
+          </div>
+          <div class="popup-detail-item">
+            <span>Best Platform to Purchase</span>
+            <strong id="popup-best-platform" class="highlight-green">Amazon (&#8377;2,499)</strong>
+          </div>
+          <div class="popup-detail-item">
+            <span>Below Best Platform</span>
+            <strong id="popup-below-best-platform">Flipkart (&#8377;2,649)</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-footer">
+        <button type="button" id="popup-ack-btn" class="audit-submit-btn">Continue in Satyavadi Court</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="{{ url_for('static', filename='robot.js') }}"></script>
+</body>
+</html>
