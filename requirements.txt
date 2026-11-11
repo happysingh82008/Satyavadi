@@ -2,6 +2,6 @@ flask
 langchain
 langgraph
 langchain-google-genai
-tavily-python
+langchain-tavily
 python-dotenv
 gunicorn
