@@ -1,7 +1,15 @@
 flask
+gunicorn
+requests
+python-dotenv
+pydantic
 langchain
 langgraph
+langchain-core
+langchain-community
 langchain-google-genai
 langchain-tavily
-python-dotenv
-gunicorn
+langchain-text-splitters
+langchain-huggingface
+faiss-cpu
+sentence-transformers
