@@ -11,7 +11,7 @@ from langchain_tavily import TavilySearch
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import tool
 from langgraph.graph import StateGraph, START, END
@@ -23,7 +23,7 @@ if not os.getenv("GOOGLE_API_KEY") and os.getenv("GEMINI_API_KEY"):
     os.environ["GOOGLE_API_KEY"] = os.getenv("GEMINI_API_KEY")
 
 llm = ChatGoogleGenerativeAI(model="gemini-3.5-flash", temperature=0)
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 search_tool = TavilySearch(max_results=3)
 
 def detect_ecommerce_platform(url: str) -> str:
