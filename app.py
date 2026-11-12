@@ -36,8 +36,8 @@ TRUST_RANGES = [
 
 @app.route("/")
 def home():
-    """Renders templates/UI.html with static/style.css and static/robot.js linked via url_for."""
-    return render_template("UI.html")
+    """Renders templates/Ui.html with static/style.css and static/robot.js linked via url_for."""
+    return render_template("Ui.html")
 
 
 @app.route("/api/audit", methods=["POST"])
